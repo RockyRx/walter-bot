@@ -1,0 +1,13 @@
+{
+  "keywords": [
+    ""
+  ],
+  "name": "walter-bot",
+  "description": "Big things have small beginnings",
+  "repository": "https://github.com/RockyRx/walter-bot.git",
+  "env": {
+    "TOKEN_SLACK": {
+      "description": "Your Slack bot integration token (obtainable at https://my.slack.com/services/new/bot)"
+    }
+  }
+}
