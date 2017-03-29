@@ -25,7 +25,7 @@ Big things have small beginnings
 1. Create a new [bot integration](https://my.slack.com/services/new/bot)
 2. Add your Slack token in ```configBot.json```
 3. ```$ npm install ```
-3. Follow the Development section
+3. Follow the *Development* section
 
 
 ## Development
