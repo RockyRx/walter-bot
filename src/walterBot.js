@@ -32,7 +32,7 @@ class WalterBot {
   _fetchAndProcessHNStories() {
     schedule.scheduleJob(nconf.get('cronexpression'), function() {
       hn.story().since('past_24h').top(function (err, data) {
-        if (err) throw err;
+        if (err) { throw err; }
 
         /**
         * Only takes the top 5 stories
