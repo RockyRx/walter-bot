@@ -3,14 +3,8 @@
     <a title='Build Status' href="https://travis-ci.org/RockyRx/walter-bot">
         <img src='https://travis-ci.org/RockyRx/walter-bot.svg?branch=master' alt='travis Status' />
     </a>
-    <a title='coveralls Status' href='https://coveralls.io/r/RockyRx/walter-bot'>
-        <img src='https://img.shields.io/coveralls/RockyRx/walter-bot.svg' alt='Coverage Status' />
-    </a>
 </p>
 <p align="center">
-    <a title='closed issue' href='http://issuestats.com/github/RockyRx/walter-bot'>
-        <img src='http://issuestats.com/github/RockyRx/walter-bot/badge/issue' alt='issue stats' />
-    </a>
     <a title='blog' href='http://memoverkill.com'>
        <img src='https://img.shields.io/badge/style-blog-blue.svg?label=my' alt='blog' />
     </a>
