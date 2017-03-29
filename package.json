@@ -2,19 +2,19 @@
   "keywords": [
     ""
   ],
-  "name": "limbot",
+  "name": "walter-bot",
   "version": "0.0.1",
-  "description": "A humble bot",
+  "description": "Big things have small beginnings",
   "author": "Oshadha Gunawardena",
   "engines": {
     "node": "5.0.0"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/RockyRx/limbot.git"
+    "url": "https://github.com/RockyRx/walter-bot"
   },
   "bugs": {
-    "url": "https://github.com/RockyRx/limbot/issues"
+    "url": "https://github.com/RockyRx/walter-bot/issues"
   },
   "scripts": {
     "start": "node src/main.js",
