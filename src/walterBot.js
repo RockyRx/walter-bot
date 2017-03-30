@@ -70,7 +70,7 @@ class WalterBot {
   }
 
   /**
-  * Process the news stories to get the title and URL
+  * Compose final message and send to Slack channel
   *
   * @param {String} fields top 5 stories of past week
   */
