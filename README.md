@@ -1,6 +1,12 @@
 <h1 align="center">walter-bot</h1> 
-[![Build Status](https://travis-ci.org/RockyRx/walter-bot.svg?branch=master)](https://travis-ci.org/RockyRx/walter-bot)
-[![Blog](https://img.shields.io/badge/style-blog-blue.svg?label=my)](http://memoverkill.com)
+<p align="center">
+    <a title='Build Status' href="https://travis-ci.org/RockyRx/walter-bot">
+        <img src='https://travis-ci.org/RockyRx/walter-bot.svg?branch=master' alt='travis Status' />
+    </a>
+    <a title='blog' href='http://memoverkill.com'>
+       <img src='https://img.shields.io/badge/style-blog-blue.svg?label=my' alt='blog' />
+    </a>
+</p>
 
 ## About walter-bot
 >walter-bot is a  node.js slack bot.
