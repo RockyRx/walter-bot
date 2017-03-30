@@ -1,4 +1,4 @@
 {
   "tokenslack": "",
-  "cronexpression": "*/1 * * * *"
+  "cronexpression": "00 00 09 * * 1-5"
 }

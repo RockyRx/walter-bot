@@ -1,7 +1,7 @@
 'use strict';
 
 var Bot = require('slackbots');
-var schedule = require('node-schedule');
+var CronJob = require('cron').CronJob;
 var hn = require('hacker-news-api');
 var _ = require('lodash');
 var nconf = require('nconf');
@@ -30,19 +30,27 @@ class WalterBot {
   * Fetch, process and post HackerNews stories at pre-configured intervals
   */
   _fetchAndProcessHNStories() {
-    schedule.scheduleJob(nconf.get('cronexpression'), function() {
-      hn.story().since('past_24h').top(function (err, data) {
-        if (err) { throw err; }
+    var job = new CronJob({
+      cronTime: nconf.get('cronexpression'),
+      onTick: function() {
+        hn.story().since('past_24h').top(function (err, data) {
+          if (err) { throw err; }
 
-        /**
-        * Only takes the top 5 stories
-        * TODO: find a more efficient way to get top 5.
-        */
-        var topStories = _.take(data.hits, 5);
-        this._processHNStories(topStories);
+          /**
+          * Only takes the top 5 stories
+          * TODO: find a more efficient way to get top 5.
+          */
+          var topStories = _.take(data.hits, 5);
+          this._processHNStories(topStories);
 
-      }.bind(this));
-    }.bind(this));
+        }.bind(this));
+      },
+      start: false,
+      timeZone: 'Asia/Colombo',
+      context: this
+    });
+
+    job.start();
   }
 
   /**
