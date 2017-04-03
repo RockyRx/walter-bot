@@ -78,7 +78,7 @@ class WalterBot {
     var color = 'successColor';
     var title = 'Hello I\'m Walter, your friendly bot. Here\'s the top 5 HackerNews stories for the past 24 hours';
 
-    this.postSlackMessage('.......', null, color, fields, title, null, 'osh-test');
+    this.postSlackMessage('.......', null, color, fields, title, null, 'general');
   }
 
   /**
