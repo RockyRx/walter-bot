@@ -4,4 +4,4 @@ class dropBoxFileAccessor {
 
 }
 
-module.exports = slackMessageAnalyzer;
+module.exports = dropBoxFileAccessor;
