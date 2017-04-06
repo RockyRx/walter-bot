@@ -46,7 +46,7 @@ class WalterBot {
         }.bind(this));
       },
       start: false,
-      timeZone: 'Asia/Colombo',
+      timeZone: nconf.get('cronexpression'),
       context: this
     });
 

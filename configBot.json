@@ -1,5 +1,5 @@
 {
   "tokenslack": "",
-  "cronexpression": "00 00 09 * * 1-5"
-  "dropbostoken": ""
+  "cronexpression": "00 00 09 * * 1-5",
+  "timezone": "Asia/Colombo"
 }
