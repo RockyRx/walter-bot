@@ -11,6 +11,7 @@ class FamousQuoteGenerator {
 
   /**
   * Gets a random quote from free API at Mashape
+  *
   * @param {String} callback callback function to process the results
   * @param {String} that this object from WalterBot
   */
