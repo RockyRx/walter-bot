@@ -5,6 +5,7 @@ var CronJob = require('cron').CronJob;
 var hn = require('hacker-news-api');
 var _ = require('lodash');
 var nconf = require('nconf');
+var FamousQuoteGenerator = require('./famousQuoteGenerator');
 
 nconf.add('config', {type: 'file', file: './configBot.json'});
 
@@ -24,6 +25,7 @@ class WalterBot {
 
   run() {
     this._fetchAndProcessHNStories();
+    this._generateAndPostRandomQuote();
   }
 
   /**
@@ -46,11 +48,44 @@ class WalterBot {
         }.bind(this));
       },
       start: false,
-      timeZone: nconf.get('cronexpression'),
+      timeZone: nconf.get('timezone'),
       context: this
     });
 
     job.start();
+  }
+
+  /**
+  * Connect to Mashape API and get a random quote
+  */
+  _generateAndPostRandomQuote() {
+    var job = new CronJob({
+      cronTime: nconf.get('cronexpression'),
+      onTick: function() {
+        var randomQuote = new FamousQuoteGenerator();
+        randomQuote._generateRandomQuote(this._composeAndSendQuote, this);
+      },
+      start: false,
+      timeZone: nconf.get('timezone'),
+      context: this
+    });
+
+    this._generateRandomTime();
+  }
+
+  /**
+  * Generate a random time to trigger the cron job
+  */
+  _generateRandomTime() {
+
+  }
+
+  _composeAndSendQuote(quoteData, that) {
+    var color = 'good';
+    var author = 'Random quote by ~ ' + quoteData.author;
+    var autherTag = quoteData.author.split(" ")[0] + '+' + quoteData.author.split(" ")[1];
+    var authorLink = 'https://www.google.com/search?q=' + autherTag;
+    that.postSlackMessage(null, null, null, color, null, author, authorLink, quoteData.quote, null, 'osh-test');
   }
 
   /**
@@ -75,30 +110,36 @@ class WalterBot {
   * @param {String} fields top 5 stories of past week
   */
   _composeAndSendMessage(fields) {
-    var color = 'successColor';
+    var color = 'good';
     var title = 'Hello I\'m Walter, your friendly bot. Here\'s the top 5 HackerNews stories for the past 24 hours';
 
-    this.postSlackMessage('.......', null, color, fields, title, null, 'general');
+    this.postSlackMessage('.......', null, null, color, fields, null, null, title, null, 'general');
   }
 
   /**
    * Post a message in the slack general chat
    *
-   * @param {String} message
-   * @param {String} fallback
+   * @param {String} message Optional text that appears within the attachment
+   * @param {String} fallback Required plain-text summary of the attachment
+   * @param {String} preText Optional text that appears above the attachment block
    * @param {successColor|failColor|infoColor} color of the vertical line before the message default infoColor yellow
    * @param {Array} fields is an Array of messages  { 'title': 'Project', 'value': 'Awesome Project','short': true},
-   * @param {String} title title message,
+   * @param {String} authorName Name of the author to be displayed
+   * @param {String} authorLink Link to the author
+   * @param {String} title title message
    * @param {String} titleLink link message
    * @param {String} nameChannelOrUser where posts a message  channel | group | user by name,
    */
-  postSlackMessage(message, fallback, color, fields, title, titleLink, nameChannelOrUser) {
+  postSlackMessage(message, fallback, preText, color, fields, authorName, authorLink, title, titleLink, nameChannelOrUser) {
     var params = {
       as_user: true,
       attachments: [
         {
           'fallback': fallback,
+          'pretext': preText,
           'color': color || this.infoColor,
+          'author_name': authorName,
+          'author_link': authorLink,
           'title': title,
           'title_link': titleLink,
           'text': message,
