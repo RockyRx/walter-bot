@@ -14,7 +14,7 @@ Big things have small beginnings
 
 ## Features
 1. Post the top 5 HackerNews stories on 'general' chanel
-2. Birthday reminder (to be released)
+2. ~~Birthday reminder (dropped)~~
 3. Random famous quotes - bashed on Mashape (to be released)
 
 ## Install Getting Started (if you want to try)
