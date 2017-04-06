@@ -70,6 +70,8 @@ class WalterBot {
       context: this
     });
 
+    job.start();
+
     this._generateRandomTime();
   }
 
