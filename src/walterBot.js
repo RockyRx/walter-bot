@@ -85,7 +85,7 @@ class WalterBot {
   _composeAndSendQuote(quoteData, that) {
     var color = 'good';
     var author = 'Random quote by ~ ' + quoteData.author;
-    var autherTag = quoteData.author.split(" ")[0] + '+' + quoteData.author.split(" ")[1];
+    var autherTag = quoteData.author.split(' ')[0] + '+' + quoteData.author.split(' ')[1];
     var authorLink = 'https://www.google.com/search?q=' + autherTag;
     that.postSlackMessage(null, null, null, color, null, author, authorLink, quoteData.quote, null, 'osh-test');
   }
