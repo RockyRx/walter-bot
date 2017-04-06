@@ -15,10 +15,10 @@ class FamousQuoteGenerator {
   * @param {String} that this object from WalterBot
   */
   _generateRandomQuote(callback, that) {
-    unirest.post("https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous")
-    .header("X-Mashape-Key", this.mashapekey)
-    .header("Content-Type", "application/x-www-form-urlencoded")
-    .header("Accept", "application/json")
+    unirest.post('https://andruxnet-random-famous-quotes.p.mashape.com/?cat=famous')
+    .header('X-Mashape-Key', this.mashapekey)
+    .header('Content-Type', 'application/x-www-form-urlencoded')
+    .header('Accept', 'application/json')
     .end(function(result) {
       callback(JSON.parse(result.body), that);
     });
