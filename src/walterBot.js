@@ -6,6 +6,7 @@ var hn = require('hacker-news-api');
 var _ = require('lodash');
 var nconf = require('nconf');
 var FamousQuoteGenerator = require('./famousQuoteGenerator');
+var Chance = require('chance');
 
 nconf.add('config', {type: 'file', file: './configBot.json'});
 
@@ -24,7 +25,7 @@ class WalterBot {
   }
 
   run() {
-    this._fetchAndProcessHNStories();
+    //this._fetchAndProcessHNStories();
     this._generateAndPostRandomQuote();
   }
 
@@ -59,27 +60,31 @@ class WalterBot {
   * Connect to Mashape API and get a random quote
   */
   _generateAndPostRandomQuote() {
-    var job = new CronJob({
-      cronTime: nconf.get('cronexpression'),
+
+    this._generateRandomTime();
+
+    new CronJob({
+      cronTime: this.customCronExpression,
       onTick: function() {
         var randomQuote = new FamousQuoteGenerator();
         randomQuote._generateRandomQuote(this._composeAndSendQuote, this);
+        this._generateAndPostRandomQuote();
       },
-      start: false,
+      start: true,
       timeZone: nconf.get('timezone'),
       context: this
     });
-
-    job.start();
-
-    this._generateRandomTime();
   }
 
   /**
-  * Generate a random time to trigger the cron job
+  * Generate a random cron expression to trigger the cron job
   */
   _generateRandomTime() {
+    var chance = new Chance();
+    var hour = chance.hour({twentyfour: true});
+    var minute = chance.minute();
 
+    this.customCronExpression = '00 ' + minute + ' ' + hour + ' * * 1-5';
   }
 
   _composeAndSendQuote(quoteData, that) {
@@ -87,7 +92,7 @@ class WalterBot {
     var author = 'Random quote by ~ ' + quoteData.author;
     var autherTag = quoteData.author.split(' ')[0] + '+' + quoteData.author.split(' ')[1];
     var authorLink = 'https://www.google.com/search?q=' + autherTag;
-    that.postSlackMessage(null, null, null, color, null, author, authorLink, quoteData.quote, null, 'osh-test');
+    that.postSlackMessage(quoteData.quote, null, null, color, null, author, authorLink, null, null, 'osh-test');
   }
 
   /**
