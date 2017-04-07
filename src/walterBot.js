@@ -25,7 +25,7 @@ class WalterBot {
   }
 
   run() {
-    //this._fetchAndProcessHNStories();
+    this._fetchAndProcessHNStories();
     this._generateAndPostRandomQuote();
   }
 
