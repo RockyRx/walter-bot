@@ -85,7 +85,7 @@ class WalterBot {
     var minute = chance.minute();
 
     this.customCronExpression = '00 ' + minute + ' ' + hour + ' * * 1-7';
-    console.log("dynamic cron expression: " + this.customCronExpression);
+    console.log('dynamic cron expression: ' + this.customCronExpression);
   }
 
   _composeAndSendQuote(quoteData, that) {
