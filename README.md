@@ -9,13 +9,13 @@
 </p>
 
 ## About walter-bot
->walter-bot is a  node.js slack bot.
+>walter-bot is a multi-purpose node.js Slack bot.
 Big things have small beginnings
 
 ## Features
-1. Post the top 5 HackerNews stories on 'general' chanel
+1. Post the top 5 HackerNews stories on 'general' chanel - baacked by [Algolia HN Search](https://hn.algolia.com/api)
 2. ~~Birthday reminder (dropped)~~
-3. Random famous quotes - bashed on Mashape (to be released)
+3. Random famous quotes - bashed on [Mashape](https://market.mashape.com) (to be released)
 
 ## Install Getting Started (if you want to try)
 1. Create a new [bot integration](https://my.slack.com/services/new/bot)
