@@ -13,7 +13,7 @@
 Big things have small beginnings
 
 ## Features
-- [x] Post the top 5 HackerNews stories on 'general' chanel - baacked by [Algolia HN Search](https://hn.algolia.com/api) 
+- [x] Post the top 5 HackerNews stories on 'general' chanel - backed by [Algolia HN Search](https://hn.algolia.com/api) 
 - [ ] ~~Birthday reminder (dropped)~~
 - [x] Random famous quotes - bashed on [Mashape](https://market.mashape.com)
 
