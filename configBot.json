@@ -2,5 +2,6 @@
   "tokenslack": "",
   "cronexpression": "00 00 09 * * 1-5",
   "timezone": "Asia/Colombo",
-  "mashapekey": ""
+  "mashapekey": "",
+  "slackchanel": "general"
 }

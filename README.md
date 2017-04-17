@@ -17,7 +17,7 @@ Big things have small beginnings
 - [ ] ~~Birthday reminder (dropped)~~
 - [x] Random famous quotes - bashed on [Mashape](https://market.mashape.com)
 
-## Install Getting Started (if you want to try)
+## Install/Getting Started (if you want to try)
 1. Create a new [bot integration](https://my.slack.com/services/new/bot)
 2. Add your Slack token in ```configBot.json```
 3. ```$ npm install ```

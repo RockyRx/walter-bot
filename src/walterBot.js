@@ -93,7 +93,7 @@ class WalterBot {
     var author = 'Random quote by ~ ' + quoteData.author;
     var autherTag = quoteData.author.split(' ')[0] + '+' + quoteData.author.split(' ')[1];
     var authorLink = 'https://www.google.com/search?q=' + autherTag;
-    that.postSlackMessage(quoteData.quote, null, null, color, null, author, authorLink, null, null, 'osh-test');
+    that.postSlackMessage(quoteData.quote, null, null, color, null, author, authorLink, null, null, nconf.get('slackchanel'));
   }
 
   /**
@@ -121,7 +121,7 @@ class WalterBot {
     var color = 'good';
     var title = 'Hello I\'m Walter, your friendly bot. Here\'s the top 5 HackerNews stories for the past 24 hours';
 
-    this.postSlackMessage('.......', null, null, color, fields, null, null, title, null, 'general');
+    this.postSlackMessage('.......', null, null, color, fields, null, null, title, null, nconf.get('slackchanel'));
   }
 
   /**
