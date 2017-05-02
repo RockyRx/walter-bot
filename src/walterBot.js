@@ -93,7 +93,7 @@ class WalterBot {
     var author = 'Random quote by ~ ' + quoteData.author;
     var autherTag = quoteData.author.split(' ')[0] + '+' + quoteData.author.split(' ')[1];
     var authorLink = 'https://www.google.com/search?q=' + autherTag;
-    that.postSlackMessage(quoteData.quote, null, null, color, null, author, authorLink, null, null, nconf.get('slackchanel'));
+    that.postSlackMessage(quoteData.quote, null, null, color, null, author, authorLink, null, null, 'osh-test');
   }
 
   /**
@@ -106,7 +106,7 @@ class WalterBot {
     for (let story of stories) {
       var field = {};
       field.title = story.title;
-      field.value = story.url;
+      field.value = story.url !== null ? story.url : 'https://news.ycombinator.com/item?id=' + story.objectID;
       fields.push(field);
     }
     this._composeAndSendMessage(fields);
