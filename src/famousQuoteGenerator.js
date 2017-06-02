@@ -21,7 +21,7 @@ class FamousQuoteGenerator {
     .header('Content-Type', 'application/x-www-form-urlencoded')
     .header('Accept', 'application/json')
     .end(function(result) {
-      callback(JSON.parse(result.body), that);
+      callback(result.body, that);
     });
   }
 }
