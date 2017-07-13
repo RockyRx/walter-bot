@@ -7,7 +7,7 @@
   "description": "Big things have small beginnings",
   "author": "Oshadha Gunawardena",
   "engines": {
-    "node": "5.0.0"
+    "node": "6.11.1"
   },
   "repository": {
     "type": "git",
